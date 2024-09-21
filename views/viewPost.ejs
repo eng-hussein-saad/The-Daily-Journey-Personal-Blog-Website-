@@ -1,0 +1,36 @@
+<%- include("partials/header.ejs") %>
+
+<div class="container viewPostContainer my-5">
+  <div class="p-5 text-center bg-body-tertiary rounded-3">
+    <h1 class="text-body-emphasis"><%= post.postTitle %></h1>
+    <p class="col-lg-8 mx-auto fs-5 text-muted"><%= post.longDescription %></p>
+    <div class="d-inline-flex gap-2 mb-5">
+      <a
+        class="btn btn-primary d-inline-flex align-items-center px-4 rounded-pill btn-lg"
+        href="/updatePost/<%= post.category %>/<%= post.id %>"
+        role="button"
+        >Update Post</a
+      >
+      <form
+        action="/deletePost/<%= post.category %>/<%= post.id %>?_method=DELETE"
+        method="POST"
+      >
+        <input type="hidden" name="_method" value="DELETE" />
+        <button
+          type="submit"
+          class="btn btn-outline-secondary d-inline-flex align-items-center px-4 rounded-pill Warning btn-lg"
+        >
+          Delete
+        </button>
+      </form>
+      <!-- <a
+        class="btn btn-outline-secondary d-inline-flex align-items-center px-4 rounded-pill Warning btn-lg"
+        href="/deletePost/<%= post.category %>/<%= post.id %>"
+        role="button"
+        >Delete Post</a
+      > -->
+    </div>
+  </div>
+</div>
+
+<%- include("partials/footer.ejs") %>

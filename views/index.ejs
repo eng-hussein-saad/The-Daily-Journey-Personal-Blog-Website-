@@ -1,0 +1,102 @@
+<%- include("partials/header.ejs") %>
+<section id="navbar">
+  <div class="container">
+    <div class="nav-scroller py-1 mb-3 border-bottom">
+      <nav class="nav nav-underline justify-content-between">
+        <a
+          class="nav-item nav-link link-body-emphasis <%= category === 'Sports' ? 'active' : '' %>"
+          href="/post/Sports"
+          >Sports</a
+        >
+        <a
+          class="nav-item nav-link link-body-emphasis <%= category === 'Business' ? 'active' : '' %>"
+          href="/post/Business"
+          >Business</a
+        >
+        <a
+          class="nav-item nav-link link-body-emphasis <%= category === 'Culture' ? 'active' : '' %>"
+          href="/post/Culture"
+          >Culture</a
+        >
+        <a
+          class="nav-item nav-link link-body-emphasis <%= category === 'Health' ? 'active' : '' %>"
+          href="/post/Health"
+          >Health</a
+        >
+        <a
+          class="nav-item nav-link link-body-emphasis <%= category === 'Politics' ? 'active' : '' %>"
+          href="/post/Politics"
+          >Politics</a
+        >
+        <a
+          class="nav-item nav-link link-body-emphasis <%= category === 'Science' ? 'active' : '' %>"
+          href="/post/Science"
+          >Science</a
+        >
+        <a
+          class="nav-item nav-link link-body-emphasis <%= category === 'Style' ? 'active' : '' %>"
+          href="/post/Style"
+          >Style</a
+        >
+        <a
+          class="nav-item nav-link link-body-emphasis <%= category === 'Technology' ? 'active' : '' %>"
+          href="/post/Technology"
+          >Technology</a
+        >
+        <a
+          class="nav-item nav-link link-body-emphasis<%= category === 'Travel' ? 'active' : '' %>"
+          href="/post/Travel"
+          >Travel</a
+        >
+      </nav>
+    </div>
+  </div>
+</section>
+
+<section class="py-5 text-center container">
+  <div class="row py-lg-5">
+    <div class="col-lg-6 col-md-8 mx-auto">
+      <h1 class="fw-light">Welcome to The Daily Journey</h1>
+      <p class="lead text-body-secondary">
+        Your destination for thoughtful insights and explorations across a wide
+        range of topics, from Sports and Technology to Culture, Business,
+        Politics, Science, Health, Style, and Travel. Here, every post is a new
+        adventure, offering fresh perspectives, in-depth analysis, and stories
+        that inspire curiosity and discovery. Join me as we navigate the
+        ever-evolving world around us, one journey at a time.
+      </p>
+      <p>
+        <a href="/createPost" class="btn btn-primary my-2">Create a post</a>
+      </p>
+    </div>
+  </div>
+  <div class="container text-start">
+    <div class="row mb-2">
+      <% post.forEach((item)=>{ %>
+      <div class="col-md-6">
+        <div
+          class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative"
+        >
+          <div class="col p-4 d-flex flex-column position-static">
+            <strong class="d-inline-block mb-2 text-primary-emphasis">
+              <%= item.category %>
+            </strong>
+            <h3 class="mb-0"><%= item.postTitle %></h3>
+            <div class="mb-1 text-body-secondary">
+              <%= item.day %>/<%= item.month %>/<%= item.year %>
+            </div>
+            <p class="card-text mb-auto">
+              <%= item.longDescription.slice(0,70) %>...
+            </p>
+            <a href="/viewPost/<%=item.category%>/<%=item.id%>" class="gap-1">
+              Continue reading...
+            </a>
+          </div>
+        </div>
+      </div>
+      <% }) %>
+    </div>
+  </div>
+</section>
+
+<%- include("partials/footer.ejs") %>

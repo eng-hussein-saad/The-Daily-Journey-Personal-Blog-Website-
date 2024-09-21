@@ -1,0 +1,94 @@
+<%- include("partials/header.ejs") %> <% if(locals.post.updateFlag){ %>
+<form class="container" method="POST" action="/updatePost?_method=PUT">
+  <input type="hidden" name="_method" value="PUT" />
+  <legend>Type Your Post Here!</legend>
+  <div class="py-1 my-5">
+    <label for="postTitle" class="form-label">Post Title</label>
+    <input type="hidden" name="id" value="<%= post.id %>" />
+    <input
+      type="text"
+      id="postTitle"
+      class="form-control"
+      name="postTitle"
+      placeholder="Enter your post title"
+      value="<%= post.postTitle %>"
+      required
+    />
+    <div class="py-1 my-5">
+      <label for="categoryMenu" class="form-label">Category</label>
+      <select id="categoryMenu" class="form-select" name="category" required>
+        <option selected disabled>
+          Current Category: <%= post.category %>
+        </option>
+        <option value="Business">Business</option>
+        <option value="Culture">Culture</option>
+        <option value="Health">Health</option>
+        <option value="Politics">Politics</option>
+        <option value="Science">Science</option>
+        <option value="Sports">Sports</option>
+        <option value="Style">Style</option>
+        <option value="Technology">Technology</option>
+        <option value="Travel">Travel</option>
+      </select>
+    </div>
+    <div class="py-1 my-5">
+      <label for="TextInput" class="form-label">Description </label>
+      <textarea
+        class="form-control"
+        id="textInput"
+        name="description"
+        rows="10"
+        placeholder="Enter your post here..."
+        required
+      >
+ <%= post.longDescription %></textarea
+      >
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary">Update Post</button>
+</form>
+<% } else{ %>
+
+<form class="container" method="POST" action="/submit">
+  <legend>Type Your Post Here!</legend>
+  <div class="py-1 my-5">
+    <label for="postTitle" class="form-label">Post Title</label>
+    <input
+      type="text"
+      id="postTitle"
+      class="form-control"
+      name="postTitle"
+      placeholder="Enter your post title"
+      required
+    />
+    <div class="py-1 my-5">
+      <label for="categoryMenu" class="form-label">Category</label>
+      <select id="categoryMenu" class="form-select" name="category" required>
+        <option selected disabled>Choose a category</option>
+        <option value="Business">Business</option>
+        <option value="Culture">Culture</option>
+        <option value="Health">Health</option>
+        <option value="Politics">Politics</option>
+        <option value="Science">Science</option>
+        <option value="Sports">Sports</option>
+        <option value="Style">Style</option>
+        <option value="Technology">Technology</option>
+        <option value="Travel">Travel</option>
+      </select>
+    </div>
+    <div class="py-1 my-5">
+      <label for="TextInput" class="form-label">Description</label>
+      <textarea
+        class="form-control"
+        id="textInput"
+        name="description"
+        rows="10"
+        placeholder="Enter your message here..."
+        required
+      ></textarea>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+<% } %> <%- include("partials/footer.ejs") %>
