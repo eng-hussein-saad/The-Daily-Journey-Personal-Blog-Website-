@@ -1,0 +1,25 @@
+#content {
+  min-height: 78.96vh;
+}
+form {
+  min-height: 84.3vh;
+}
+.btn-primary {
+  background-color: #55595c;
+}
+.btn-primary:hover {
+  background-color: #212529;
+}
+.Warning:hover {
+  background-color: red;
+}
+.viewPostContainer {
+  min-height: 76.6vh;
+}
+body > main > section.py-5.text-center.container {
+  min-height: 77vh;
+}
+
+body > main > div.container.viewPostContainer.my-5 > div > div > form {
+  min-height: 0.3vh;
+}
